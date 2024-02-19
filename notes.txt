@@ -1,0 +1,22 @@
+(Pinch rotate control)
+
+import React from 'react';
+import { useGesture } from 'react-use-gesture';
+
+const MyComponent: React.FC = () => {
+  const bind = useGesture({
+    onDrag: (state) => {
+      console.log('Dragged', state.movement);
+    },
+    onPinch: (state) => {
+      console.log('Pinched', state.pinches);
+    },
+    onWheel: (state) => {
+      console.log('Wheel', state.wheeling);
+    },
+  });
+
+  return <div {...bind()} style={{ width: '100px', height: '100px', background: 'red' }} />;
+};
+
+export default MyComponent;
